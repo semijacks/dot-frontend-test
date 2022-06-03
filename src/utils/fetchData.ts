@@ -1,3 +1,4 @@
+//handels api request
 export const fetchData = async (
   url: string,
   setBallotData: React.Dispatch<React.SetStateAction<never[]>>

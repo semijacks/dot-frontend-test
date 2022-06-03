@@ -17,9 +17,10 @@
   color: white;
 }
 
-.App-header h1 {
+.App-header-text {
   color: black;
   font-size: larger;
+  text-transform: uppercase;
 }
 
 .App-link {

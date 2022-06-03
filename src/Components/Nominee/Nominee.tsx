@@ -15,7 +15,6 @@ const Nominee = ({
   categoryTitle,
   nomineeTitle,
   nomineePhotoUrL,
-  nomineeId,
   votes,
   setVotes,
 }: NomineeProps) => {
@@ -24,11 +23,13 @@ const Nominee = ({
     setVotes(newVotes);
   };
 
+  //adds styling to active vote
   const addActiveClass = (title: string): string | null => {
     const isActive = votes[categoryTitle] === title ? 'active' : null;
     return isActive;
   };
 
+  //disables active vote button
   const isButtonActive = (title: string): boolean => {
     const isActive = votes[categoryTitle] !== title ? false : true;
     return isActive;

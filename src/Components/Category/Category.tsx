@@ -6,7 +6,7 @@ import './Category.css';
 interface CategoryProps {
   categoryTitle: string;
   categoryId: string;
-  categoryItems: {
+  nomineeItems: {
     title: string;
     id: string;
     photoUrL: string;
@@ -17,8 +17,7 @@ interface CategoryProps {
 
 const Category = ({
   categoryTitle,
-  categoryId,
-  categoryItems,
+  nomineeItems,
   votes,
   setVotes,
 }: CategoryProps) => {
@@ -27,8 +26,11 @@ const Category = ({
       <div className='category-heading'>
         <h3>{categoryTitle}</h3>
       </div>
+
+      {/* nominees */}
       <div className='nominees'>
-        {categoryItems.map(({ id, photoUrL, title }) => (
+        {nomineeItems.map(({ id, photoUrL, title }) => (
+          //renders each nominee card
           <Nominee
             key={id}
             nomineeId={id}
