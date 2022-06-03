@@ -47,3 +47,8 @@
   margin-bottom: 20px;
   padding: 10px 20px;
 }
+
+.nominee-card-btn:disabled {
+  border: none;
+  cursor: not-allowed;
+}
