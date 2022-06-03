@@ -1,0 +1,20 @@
+.ballot {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 300px;
+}
+
+.submit-btn {
+  border: none;
+  background-color: #d5e8d4;
+  outline: none;
+  cursor: pointer;
+  padding: 20px 50px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}

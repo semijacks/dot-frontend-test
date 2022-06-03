@@ -1,11 +1,12 @@
 import React from 'react';
-import { Votes } from './Ballot/Ballot';
-import Nominee from './Nominee';
+import { Votes } from '../Ballot/Ballot';
+import Nominee from '../Nominee/Nominee';
+import './Category.css';
 
 interface CategoryProps {
-  title: string;
-  id: string;
-  items: {
+  categoryTitle: string;
+  categoryId: string;
+  categoryItems: {
     title: string;
     id: string;
     photoUrL: string;
@@ -15,9 +16,9 @@ interface CategoryProps {
 }
 
 const Category = ({
-  title: categoryTitle,
-  id,
-  items,
+  categoryTitle,
+  categoryId,
+  categoryItems,
   votes,
   setVotes,
 }: CategoryProps) => {
@@ -27,12 +28,12 @@ const Category = ({
         <h3>{categoryTitle}</h3>
       </div>
       <div className='nominees'>
-        {items.map(({ id, photoUrL, title }) => (
+        {categoryItems.map(({ id, photoUrL, title }) => (
           <Nominee
             key={id}
-            id={id}
-            photoUrL={photoUrL}
-            title={title}
+            nomineeId={id}
+            nomineePhotoUrL={photoUrL}
+            nomineeTitle={title}
             votes={votes}
             setVotes={setVotes}
             categoryTitle={categoryTitle}

@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import Category from '../Category';
+import { useEffect, useState } from 'react';
+import { fetchData } from '../../utils/fetchData';
+import Category from '../Category/Category';
+import './Ballot.css';
 
 export interface Votes {
   [key: string]: string;
@@ -11,17 +13,9 @@ const Ballot = () => {
 
   useEffect(() => {
     const url = 'http://localhost:8080/api/getBallotData';
+
     //fetches ballot data from backend
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        await setBallotData(data.items);
-      } catch (error) {
-        console.log('error', error);
-      }
-    };
-    fetchData();
+    fetchData(url, setBallotData);
   }, []);
 
   return (
@@ -29,15 +23,15 @@ const Ballot = () => {
       {ballotData.map(({ title, id, items }) => (
         <Category
           key={id}
-          title={title}
-          id={id}
-          items={items}
+          categoryTitle={title}
+          categoryId={id}
+          categoryItems={items}
           votes={votes}
           setVotes={setVotes}
         />
       ))}
       <div className='submit'>
-        <button className='submit-btn'>SUBMIT</button>
+        <button className='submit-btn'>submit</button>
       </div>
     </div>
   );
